@@ -1,0 +1,104 @@
+= timesheet
+
+* http://github.com/jschank/timesheet
+
+== DESCRIPTION:
+
+<i>Timesheet</i> is simple ruby application for tracking time spent on projects.
+It is a console application that uses a simple text file storage back-end (YAML::Store)
+
+The main idea is to be able to produce reports of hours spent, such that I can use geektool to display the reports.
+
+== FEATURES/PROBLEMS:
+
+with <i>timesheet</i> you can:
+
+* <b>add</b> new entries to the database
+* <b>edit</b> existing entries
+* <b>delete</b> existing entries
+* <b>list</b> existing entries, and specify a time range
+* <b>produce</b> simple reports
+
+== SYNOPSIS:
+
+<i>Timesheet</i> is a script for keeping track of time spent on various projects.
+
+=== Usage:
+
+	timesheet [OPTIONS] COMMAND [ARGS]
+
+COMMAND is any of the following:
+	add
+	edit
+	delete
+	list
+	report
+
+OPTIONS are:
+<tt>--debug, -d</tt>:: Show debugging information while processing
+<tt>--version, -v</tt>:: Print version and exit
+<tt>--help, -h</tt>:: Show this message
+
+=== For help run:
+
+ 	timesheet COMMAND --help
+
+for more information on a specific command.
+
+=== Your Data
+
+your <i>timesheet</i> data will be stored in a hidden directory under your user account. <i>Timesheet</i> figures out
+where this is by referencing the "HOME" environment variable. The default location is therefore:
+<tt>/Users/someuser/.timesheet/store.yaml</tt>
+
+You may override this location to any specific location you want by setting the "TIMESHEET_DATA_FILE" environment variable.
+This should be the full path to where you want the data stored. Including filename and extension.
+You only need to set this if you are unsatisfied with the default location.
+
+=== the .idea folder
+
+This project was created using RubyMine 2.0, and that IDE stores its state in the .idea folder.
+If you aren't using RubyMine, you can delete it.
+
+== REQUIREMENTS:
+
+* FIX (list of requirements)
+
+== INSTALL:
+
+  sudo gem install timesheet
+
+== To Do
+
+- Add indicator in reports for start or end times which had to be trimmed
+- Add indicator in reports that exclude comments, that comments are available, when they are, i.e. after a summary,
+you might want to know that you should do a detail, or byday report
+- Add option to produce pdf file, for this to work, I need to ensure that all the reports are using <b>ruport</b>.
+- If comments get too long, we may want to exclude them from the detail report
+- Add a new command to inspect a single entry. Just dump all the fields for a given record number
+- Might want to track comments separately and/or make an entries comments an array rather than a single comment.
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2009 John F. Schank III
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
